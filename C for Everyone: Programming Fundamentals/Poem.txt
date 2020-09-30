@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main()
+{
+	printf("There are programming languages like C++ \n");
+	printf("But then there are others that cause a fuss \n");
+	printf("At the end of the day you may have something done \n");
+	printf("But by the next day you restart all the fun \n");
+	
+	return 0;
+
+}
