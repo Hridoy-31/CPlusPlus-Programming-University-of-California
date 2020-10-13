@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    double x,result;
+    scanf("%lf", &x); // 0 < x < 1
+    
+    result = sin(x); // angle in radian
+    printf("%lf \n", result);
+    
+    return 0;
+}
