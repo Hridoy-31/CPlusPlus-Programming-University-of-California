@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void calc_avg(int a[], int l) {
+    double sum = 0.0;
+    for (int i=0; i<l; i++) {
+        sum = sum + a[i];
+    }
+    
+    printf("%lf n", sum/l);
+}
+
+void get_data() {
+    int size = 1000;
+    int arr[size];
+    
+    FILE *file_ptr;
+    
+    file_ptr = fopen("elephant_seal_data.txt", "r");
+    
+    if (file_ptr == NULL) {
+        printf("ERROR");
+    }
+    else {
+        for (int i=0; i<size; i++) {
+            fscanf(file_ptr,"%d", &arr[i]);
+        }
+        
+        calc_avg(arr, size);
+    }
+    
+}
+
+int main() 
+{
+    get_data();
+    
+    return 0;
+}
