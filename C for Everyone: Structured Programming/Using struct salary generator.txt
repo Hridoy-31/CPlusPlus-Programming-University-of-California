@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#define MAX 10
+
+enum dept {hr, sales, research, software, exec}; //5 departments
+typedef enum dept dept;
+
+typedef struct employee {int department; int salary; unsigned int sss;} employee;
+employee arr_employ[MAX]; //array for employees
+
+int dept_generator(dept *d)
+{
+	*d = rand() % 4;
+}
+
+void print_dept(dept d)
+{
+	switch(d) {
+	case hr: printf("HR\n"); break;
+	case sales: printf("Sales\n"); break;
+	case research: printf("Research\n"); break;
+	case software: printf("Software\n"); break;
+	case exec: printf("Executive\n"); break;
+	default: printf("Error!\n");
+	}
+} 
+
+int salary_generator()
+{
+	int max = 100000, min = 50000, range, salary_over, salary; //assume salary of 50k - 100k
+	range = max - min;
+	salary_over = rand() % range;
+	salary = min + salary_over;
+	return salary;
+}
+
+int sss_generator()
+{
+	return rand() % 999999999; //Generates random 9 digit number for SSS
+}
+
+int main(void)
+{
+	struct employee arr_employ[MAX];
+	int i;
+	dept d;
+	srand(time(0));
+	for (i = 0; i < 10; i++) {
+		arr_employ[i].salary = salary_generator();
+		arr_employ[i].sss = sss_generator();
+		printf("Employee #%d\n", i + 1);
+		printf("Department: ");
+		dept_generator(&d);
+		print_dept(d);
+		printf("Salary: %d\n", arr_employ[i].salary);
+		printf("SSS: %09u\n", arr_employ[i].sss);
+		printf("\n");
+	};
+	return 0;
+}
